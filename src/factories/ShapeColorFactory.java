@@ -5,12 +5,12 @@
  */
 package factories;
 
+import interfaces.AbstractShapeColor;
 import interfaces.Color;
 import interfaces.Shape;
 import interfaces.ShapeColor;
 import models.Blue;
 import models.Circle;
-import models.CircleRed;
 import models.Green;
 import models.Rectangle;
 import models.Red;
@@ -25,7 +25,8 @@ public class ShapeColorFactory {
     public Shape getShape(String shapeType) {
         switch(shapeType) {
                 case "CIRCLE":
-                    return new Circle();
+                    return new Circle("CIRCLE","");
+//                    break;
                 case "RECTANGLE":
                     return new Rectangle();
                 case "SQUARE":
@@ -47,6 +48,13 @@ public class ShapeColorFactory {
     }
     
     public ShapeColor getShapeColor(String shapeType, String colorType) {
-        return(new CircleRed());
+        return(new Circle(shapeType, colorType));
+    }
+    
+    
+    // CORRECT because it gives an itermediate level of needed
+    // implementations that ARE NOT RELATED TO Shape or Color!!!!!
+    public AbstractShapeColor getAbstractShapeColor(String shapeType, String colorType) {
+        return(new Circle(shapeType, colorType));
     }
 }

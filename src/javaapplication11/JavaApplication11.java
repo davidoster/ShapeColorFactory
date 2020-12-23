@@ -5,10 +5,9 @@
  */
 package javaapplication11;
 
+import factories.AbstractShapeColorFactory;
 import factories.ShapeColorFactory;
-import interfaces.Color;
-import interfaces.Shape;
-import interfaces.ShapeColor;
+import interfaces.AbstractShapeColor;
 
 /**
  *
@@ -21,6 +20,7 @@ public class JavaApplication11 {
      */
     public static void main(String[] args) {
       ShapeColorFactory shapeColorFactory = new ShapeColorFactory();
+  
 //
 //      //get an object of Circle and call its draw method.
 //      Shape circle = shapeColorFactory.getShape("CIRCLE");
@@ -43,8 +43,13 @@ public class JavaApplication11 {
 //      Color red = shapeColorFactory.getColor("RED");
 //      red.paint();
 //      
-      ShapeColor circleRed = shapeColorFactory.getShapeColor("CIRCLE", "RED");
-      circleRed.drawPaint();
+//      ShapeColor circleRed = shapeColorFactory.getShapeColor("CIRCLE", "RED");
+//      circleRed.drawPaint();
+
+//    ShapeColor circle = shapeColorFactory.getShapeColor("CIRCLE", "");
+    AbstractShapeColorFactory k = shapeColorFactory.getAbstractShapeColor("", "");
+    AbstractShapeColor circleRed2 = shapeColorFactory.getAbstractShapeColor("CIRCLE", "RED");
+    circleRed2 = (AbstractShapeColor) shapeColorFactory.getShapeColor("", "");
               
     }
     

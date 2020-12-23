@@ -5,23 +5,47 @@
  */
 package models;
 
-import interfaces.Color;
-import interfaces.Shape;
+import interfaces.AbstractShapeColor;
+import interfaces.ShapeColor;
 
 /**
  *
  * @author George.Pasparakis
  */
-public class Circle implements Shape, Color {
-
+public class Circle implements AbstractShapeColor, ShapeColor {
+    String shapeType;
+    String colorType;
+    
+    private Circle() {}
+    
+    public Circle(String shapeType, String colorType) {
+        this.shapeType = shapeType;
+        this.colorType = colorType;
+        drawPaint();
+    }
+            
     @Override
     public void draw() {
-        System.out.println("Circle");
+        System.out.println(shapeType);
     }
 
     @Override
     public void paint() {
-        System.out.println("Circle with color");
+        System.out.println(colorType);
+    }
+
+    @Override
+    public void drawPaint() {
+        System.out.print("Combined: ");
+        draw();
+        System.out.print(" with ");
+        paint();
+        System.out.println("");
+    }
+
+    @Override
+    public void redraw() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
